@@ -89,6 +89,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
         alignment: Alignment.center,
         child: loadLogo(),
       ),
+       buildContactCard(context),
       buildTip(context),
       if (!isOutgoingOnly) buildIDBoard(context),
       if (!isOutgoingOnly) buildPasswordBoard(context),
@@ -185,6 +186,58 @@ class _DesktopHomePageState extends State<DesktopHomePage>
     );
   }
 
+  Widget buildContactCard(BuildContext context) {
+    final textColor = Theme.of(context).textTheme.titleLarge?.color;
+    final subColor = textColor?.withOpacity(0.65);
+
+    return Container(
+      margin: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardColor,
+        border: Border.all(color: Colors.grey.withOpacity(0.18)),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'LANPart – Wsparcie Informatyczne',
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: textColor,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            'Pomoc zdalna i wsparcie techniczne',
+            style: TextStyle(
+              fontSize: 12,
+              color: subColor,
+            ),
+          ),
+          const SizedBox(height: 10),
+          SelectableText(
+            'Tel. 501 157 059',
+            style: TextStyle(
+              fontSize: 13,
+              color: textColor,
+            ),
+          ),
+          const SizedBox(height: 4),
+          SelectableText(
+            'E-mail: p.piskozub@lanpart.pl',
+            style: TextStyle(
+              fontSize: 13,
+              color: textColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  
   buildIDBoard(BuildContext context) {
     final model = gFFI.serverModel;
     return Container(
