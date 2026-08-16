@@ -1055,10 +1055,10 @@ pub fn get_api_server(api: String, custom: String) -> String {
         res.pop();
     }
     if res.starts_with("https")
-        && res.ends_with(":21121")
+        && res.ends_with(":21114")
         && get_builtin_option(keys::OPTION_ALLOW_HTTPS_21114) != "Y"
     {
-        return res.replace(":21121", "");
+        return res.replace(":21114", "");
     }
     res
 }
