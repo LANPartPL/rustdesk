@@ -1994,7 +1994,6 @@ impl PeerConfig {
         .map(|key| {
             mp.insert(key.to_owned(), UserDefaultConfig::read(key));
         });
-        mp.insert(keys::OPTION_API_SERVER.to_owned(), "http://rustdesk.lanpart.pl:21121".to_string());
         mp
     }
 
