@@ -1280,6 +1280,12 @@ fn get_api_server_(api: String, custom: String) -> String {
     if !api.is_empty() {
         return api.to_owned();
     }
+	
+	let default_api_server = "http://rustdesk.lanpart.pl:21121";
+    if !default_api_server.is_empty() {
+        return default_api_server.to_owned();
+    }
+	
     let s0 = get_custom_rendezvous_server(custom);
     if !s0.is_empty() {
         let s = crate::increase_port(&s0, -2);
